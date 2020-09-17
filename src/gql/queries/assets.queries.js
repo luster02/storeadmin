@@ -1,22 +1,21 @@
 import { gql } from '@apollo/client'
+import { Asset } from '../fragments/assets.fragments'
 
 export const GET_ASSET = gql`
     query GetAsset($id: Int!) {
       getAsset(id: $id) {
-        id
-        url
-        public_id
+        ...AssetParts
       }
     }
+    ${Asset}
 `
 export const GET_ALL_ASSETS = gql`
     query GetAllAssets($gallery_id: Int!) {
       getAllAssets(gallery_id: $gallery_id) {
-     		id
-        url
-        public_id
+        ...AssetParts
       }
     }
+    ${Asset}
 `
 
 export const GET_GALLERY = gql`
@@ -25,10 +24,9 @@ export const GET_GALLERY = gql`
       id
       folder
       assets{
-        id
-        url
-        public_id
+        ...AssetParts
       }
     }
   }
+  ${Asset}
 `

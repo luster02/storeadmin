@@ -8,8 +8,6 @@ export const CURRENT_USER_AUTH = gql`
   }
 `
 
-//export const 
-
 export const CURRENT_USER = gql`
   query getCurrentUser {
     currentUser{
@@ -31,23 +29,3 @@ export const CURRENT_USER = gql`
     }
   }
 `
-
-export const LOGIN = gql`
-  mutation login($user: SigninDto!) {
-    signin(userData: $user) {
-      success
-      error
-      token
-    }
-  }
-`
-export const REGISTER = gql`
-  mutation register($user: SignupDto!){
-    signup(userData: $user){
-      success
-      error
-    }
-  }
-`
-
-
